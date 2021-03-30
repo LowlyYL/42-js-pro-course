@@ -1,1 +1,1 @@
-alert('пока')
+alert('hellow world')
