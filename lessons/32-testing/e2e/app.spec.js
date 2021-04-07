@@ -8,7 +8,7 @@ describe('e2e' ,() => {
   beforeAll(async () => {
     browser = await puppeteer.launch({
       headless: false,
-      slowMo: 100,
+      slowMo: 200,
     });
     page = await browser.newPage();
     await page.goto('http://localhost:3030/');
@@ -16,8 +16,16 @@ describe('e2e' ,() => {
 
   // 3
   it('Test saving name', async () => {
-    expect(true).toBeTruthy()
-  }, 10000);
+    await page.waitForSelector('.form');
+
+    await page.focus('.input');
+    await page.keyboard.type('Alex');
+
+    await page.click('.button');
+
+    const savedValue = await page.evaluate(() => localStorage.getItem('name'))
+    expect(savedValue).toEqual('Alex')
+}, 10000);
 
   // 4
   afterAll(() => {
