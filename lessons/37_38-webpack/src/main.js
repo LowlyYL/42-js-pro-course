@@ -11,20 +11,26 @@ const render = () => {
     Header()
   )
   if (window.location.pathname === '/home' || window.location.pathname === '/') {
-    // import('./components/Content')
-    //   .then(({ default: contentModule }) => {
-    //     console.log(contentModule)
-    //     root.appendChild(contentModule())
-    //   })
     root.appendChild(
       Content()
     )
   }
   if (window.location.pathname === '/contacts') {
+    import('./components/Contacts')
+      .then(({ default: contactsModule }) => {
+        root.appendChild(contactsModule())
+      })
     root.appendChild(
       Contacts()
     )
   }
+}
+
+if (module.hot) {
+  module.hot.accept("./components/Header", () => {
+    console.log("Accepting the updated module!");
+    render();
+  });
 }
 
 render()
