@@ -1,0 +1,12 @@
+div {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    border: 1px solid blue;
+    width: 250px;
+}
