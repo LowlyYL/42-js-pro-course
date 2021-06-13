@@ -1,0 +1,49 @@
+.Preloader-container {
+    margin: 50px auto 0 auto;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+   background: #49b15b;
+  background-size: 400%;
+  animation: increase 400ms linear;
+  border-radius: 50%;
+}
+
+.circle:nth-child(2) {
+  background: #e24f5a;
+  animation-delay: 400ms;
+}
+
+.circle:nth-child(3) {
+  background: #ffc83c;
+  animation-delay: 800ms;
+  
+}
+
+.circle:nth-child(4) {
+  background: #3facc0;
+  animation-delay: 1200ms;
+}
+
+.circle:nth-child(5) {
+  background: #e7f3ff;
+  animation-delay: 1600ms;
+}
+
+.circle:nth-child(6) {
+  animation-delay: 2000ms;
+  background: #4a5054;
+}
+
+@keyframes increase {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
